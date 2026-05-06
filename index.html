@@ -744,19 +744,7 @@
       margin-bottom: 0.5rem; color: var(--ink);
     }
     .service-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.65; margin-bottom: 1rem; }
-    .service-price {
-      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--accent);
-      display: none !important;
-    }
-    .service-price span { font-size: 0.75rem; font-weight: 400; color: var(--mid); font-family: 'DM Sans', sans-serif; }
 
-    .pricing-section,
-    .nav-links a[href="#pricing"],
-    .mobile-menu a[href="#pricing"],
-    .btn-cta-outline[href="#pricing"],
-    footer a[href="#pricing"] {
-      display: none !important;
-    }
 
     /* ===== MARQUEE / WHY ===== */
     .why-section { background: var(--ink); color: white; padding: 90px 5%; }
@@ -2069,7 +2057,7 @@
   </div>
 
   <!-- SERVICES -->
-  <section id="services" class="section fade-up">
+  <section id="services" class="section">
     <div class="section-header">
       <span class="section-label">What We Offer</span>
       <h2 class="section-title">Complete Print &amp;<br>Stationery Services</h2>
@@ -2854,6 +2842,7 @@
   </a>
 
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('navbar');
@@ -2907,7 +2896,13 @@
       }
       
       // Add active class to clicked tab
-      const activeTab = clickedTab || event?.target?.closest('.category-tab');
+      let activeTab = clickedTab;
+      if (!activeTab && event && event.target) {
+        const closestTab = event.target.closest('.category-tab');
+        if (closestTab) {
+          activeTab = closestTab;
+        }
+      }
       if (activeTab) {
         activeTab.classList.add('active');
       }
@@ -2965,7 +2960,10 @@
       
       // Add active class to corresponding tab
       const tabIndex = categories.indexOf(category);
-      document.querySelectorAll('.category-tab')[tabIndex].classList.add('active');
+      const tabs = document.querySelectorAll('.category-tab');
+      if (tabs[tabIndex]) {
+        tabs[tabIndex].classList.add('active');
+      }
       
       currentCategoryIndex = tabIndex;
     }
