@@ -2494,7 +2494,7 @@
         <h2 class="section-title">Trusted by Students,<br>Offices &amp; Businesses</h2>
         <p class="section-sub">From a single photocopy to bulk printing orders — we deliver quality, speed and the best prices in Pimpri.</p>
         <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="#contact" class="btn-primary" style="background: var(--accent2); color: var(--ink);">📞 Call Us Now</a>
+          <a href="tel:+918469981393" class="btn-primary" style="background: var(--accent2); color: var(--ink);">📞 Call Us Now</a>
           <a href="#pricing" class="btn-cta-outline">View Pricing</a>
         </div>
       </div>
@@ -2547,7 +2547,6 @@
         <span class="price-badge">Most Popular</span>
         <div class="price-name">B&W Printing</div>
         <div class="price-label">Photocopy & Laser Print</div>
-        <div class="price-amount"><sup>₹</sup>1<sub>/page</sub></div>
         <div class="price-divider"></div>
         <ul class="price-list">
           <li>A4 Black & White Xerox</li>
@@ -2556,13 +2555,12 @@
           <li>Double-sided available</li>
           <li>Same-day ready</li>
         </ul>
-        <a href="#contact" class="btn-plan">Order Now</a>
+        <a href="tel:+918469981393" class="btn-plan">Call Now</a>
       </div>
       <div class="price-card featured fade-up">
         <span class="price-badge">⭐ Best Value</span>
         <div class="price-name">Color Printing</div>
         <div class="price-label">Vivid Color Output</div>
-        <div class="price-amount"><sup>₹</sup>5<sub>/page</sub></div>
         <div class="price-divider"></div>
         <ul class="price-list">
           <li>A4 Full-Color Print</li>
@@ -2571,13 +2569,12 @@
           <li>A3 also available</li>
           <li>Bulk discounts apply</li>
         </ul>
-        <a href="#contact" class="btn-plan">Order Now</a>
+        <a href="tel:+918469981393" class="btn-plan">Call Now</a>
       </div>
       <div class="price-card fade-up">
         <span class="price-badge">Complete Package</span>
         <div class="price-name">Binding & Lamination</div>
         <div class="price-label">Document Finishing</div>
-        <div class="price-amount"><sup>₹</sup>30<sub>+</sub></div>
         <div class="price-divider"></div>
         <ul class="price-list">
           <li>Spiral / Comb Binding</li>
@@ -2586,7 +2583,7 @@
           <li>ID card lamination</li>
           <li>Thesis binding available</li>
         </ul>
-        <a href="#contact" class="btn-plan">Order Now</a>
+        <a href="tel:+918469981393" class="btn-plan">Call Now</a>
       </div>
     </div>
   </section>
@@ -2842,6 +2839,37 @@
   </a>
 
   <script>
+    // Category tab switching
+    function showCategory(category, clickedTab) {
+      // Hide all category sections
+      document.querySelectorAll('.services-category-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Remove active class from all tabs
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Show selected category
+      const targetSection = document.getElementById('cat-' + category);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+      
+      // Add active class to clicked tab
+      let activeTab = clickedTab;
+      if (!activeTab && event && event.target) {
+        const closestTab = event.target.closest('.category-tab');
+        if (closestTab) {
+          activeTab = closestTab;
+        }
+      }
+      if (activeTab) {
+        activeTab.classList.add('active');
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
@@ -2876,37 +2904,6 @@
         document.body.style.overflow = '';
       }
     });
-
-    // Category tab switching
-    function showCategory(category, clickedTab) {
-      // Hide all category sections
-      document.querySelectorAll('.services-category-section').forEach(section => {
-        section.classList.remove('active');
-      });
-      
-      // Remove active class from all tabs
-      document.querySelectorAll('.category-tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      
-      // Show selected category
-      const targetSection = document.getElementById('cat-' + category);
-      if (targetSection) {
-        targetSection.classList.add('active');
-      }
-      
-      // Add active class to clicked tab
-      let activeTab = clickedTab;
-      if (!activeTab && event && event.target) {
-        const closestTab = event.target.closest('.category-tab');
-        if (closestTab) {
-          activeTab = closestTab;
-        }
-      }
-      if (activeTab) {
-        activeTab.classList.add('active');
-      }
-    }
 
     // Touch swipe support for mobile
     let touchStartX = 0;
