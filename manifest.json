@@ -1,0 +1,21 @@
+{
+  "name": "AP Copiers",
+  "short_name": "AP Copiers",
+  "description": "Xerox & Stationery Center in Pimpri, Pune",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#25D366",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "192x192",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "512x512",
+      "type": "image/x-icon"
+    }
+  ]
+}
